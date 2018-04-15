@@ -1,0 +1,13 @@
+------------------
+The tests patterns provided in and from this folder can be easily forgotten, the findMSS function handle them.
+------------------
+
+-- Solutions --
+
+- allBoundsTest: 10 1 2 3 4
+- lowerBoundTest: 11 11
+- upperBoundTest: 11 11
+- noBoundsTest: 35 24 11
+
+- sizeBounds -> lightTwoElementsTest: 2 2
+			 -> heavyTwoElementsTest: 2147483648 2147483648

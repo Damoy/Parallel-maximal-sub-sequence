@@ -1,0 +1,29 @@
+-------------------------------
+TrickyMirror ('fornali.c': line 388, findMSS function)
+-------------------------------
+
+-- Pattern (pseudo-code) --
+
+src = data
+n = data.size
+
+// 0 1 2 3 4 5 6
+for(i = 0; i <= (n / 2) - 1; ++i)
+	src[i] >= 0
+
+// -30
+i[(n / 2)] < -(sum(src from i to ((n / 2) - 1)))
+i[(n / 2) + 1] = i[(n / 2)]
+
+// 6 5 4 3 2 1 0
+for(j = 0, i = (n / 2) + 2; i < n; ++i, ++j)
+	src[i] = src[(n / 2) - 1 - j];
+
+e.g.:
+	data: 0 1 2 3 4 5 6 -30 -30 6 5 4 3 2 1 0
+	solution: 21 0 1 2 3 4 5 6
+-------------
+
+This pattern of test was not previously handled by my algorithm.
+I had to find a solution that does not break the current parallelization and validity.
+I tried multiple parallelized solutions but they turned out to be slower than a simple sequential for loop (at least on my machine). I also tried multiple tests and concluded that this algorithm's branch is rarely explored, thus I decided to let it sequential.
